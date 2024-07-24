@@ -28,27 +28,39 @@ export default function Header() {
         
         <Navbar.Collapse>
             <Navbar.Link active={path === '/'} as={'div'}>
-                <Link to='/'>
+                <Link to='/'
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    path === '/' ? 'bg-indigo-500 text-white' : 'text-gray-900'
+                } hover:bg-indigo-500 hover:text-white`}
+                >
                 Home
                 </Link>
             </Navbar.Link>
             <Navbar.Link active={path === '/about'} as={'div'}>
-                <Link to='/about'>
+                <Link to='/about'
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    path === '/about' ? 'bg-indigo-500 text-white' : 'text-gray-900'
+                } hover:bg-indigo-500 hover:text-white`}
+                >
                 About
                 </Link>
             </Navbar.Link >
             <Navbar.Link active={path === '/projects'} as={'div'}>
-                <Link to='/projects'>
+                <Link to='/projects'
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    path === '/projects' ? 'bg-indigo-500 text-white' : 'text-gray-900'
+                } hover:bg-indigo-500 hover:text-white`}
+                >
                 Projects
                 </Link>
             </Navbar.Link>
         </Navbar.Collapse>
         <div className='flex gap-2 mid:order-2'>
-            <Button className='w-12 h-10 hidden sm:inline' color='gray' pill>
+            <Button className='w-12 h-10 hidden sm:inline  hover:bg-indigo-500 hover:text-white btn-custom' color='gray' pill>
                 <FaMoon />
             </Button>
             <Link to='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue'>
+            <Button className='bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:bg-indigo-500 hover:text-white btn-custom'>
                 Sign In
             </Button>
             </Link>
