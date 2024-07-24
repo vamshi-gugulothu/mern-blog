@@ -13,7 +13,7 @@ mongoose
     console.log('MongoDB is connected')
 })
 .catch((err) => {
-    console.log(errr)
+    console.log(err)
 })
 
 const app = express()
@@ -31,7 +31,7 @@ app.use((err,req,res,next) =>{
     const statuscode = err.statuscode || 500;
     const message = err.message || 'Internal Server Error';
     res.status(statuscode).json({
-        succes: false,
+        success: false,
         statuscode,
         message,
     });

@@ -36,7 +36,7 @@ export const signin = async (req,res,next) => {
     const {email,password} = req.body;
 
     if (!email || !password || email=== '' || password === ''){
-        next(errorHandler(400,'All fields are required'));
+       return next(errorHandler(400,'All fields are required'));
     }
     try{
         const validUser = await User.findOne({email});
@@ -48,7 +48,7 @@ export const signin = async (req,res,next) => {
            return  next(errorHandler(400, 'Invalid password'));
         }
         const token = jwt.sign({id:validUser._id}, process.env.JWT_SECRET);
-        const {password:pass, ...rest} = validUser._doc
+        const {password:pass, ...rest} = validUser._doc;
         res.status(200).cookie('access_token',token,{
             httpOnly: true,
         })
