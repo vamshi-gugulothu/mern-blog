@@ -9,11 +9,11 @@ export const signup = async (req,res,next) => {
     if (!username || 
         !email || 
         !password || 
-        username==='' || 
-        email==='' || 
-        password===''
+        username === '' || 
+        email === '' || 
+        password === ''
     ) {
-        next(errorHandler(400,'All fields are required'));
+       return next(errorHandler(400,'All fields are required'));
     }
 
     const hashesPassword = bcryptjs.hashSync(password,10);
@@ -25,7 +25,7 @@ export const signup = async (req,res,next) => {
     });
 
     try{
-    await newUser.save()
+    await newUser.save();
     res.json('Signup successful');
     }catch (error){
         next(error);

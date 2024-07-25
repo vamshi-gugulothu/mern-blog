@@ -1,13 +1,13 @@
-import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import { useState } from 'react';
-import React from 'react'
-import { Link,useNavigate } from 'react-router-dom'
-import {useDispatch,useSelector} from 'react-redux'
+import React from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+import {useDispatch,useSelector} from 'react-redux';
 import { SignInstart,signInSuccess,signInFailure } from '../redux/user/userSlice';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const {loading, error : errorMessage} = useSelector((state) => state.user);
+  const {loading, error : errorMessage} = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -27,7 +27,7 @@ export default function SignIn() {
       });
       const data = await res.json();
       if (data.success === false) {
-        dispatch(signInFailure(data));
+        return dispatch(signInFailure(data.message));
       }
       if(res.ok) {
         dispatch(signInSuccess(data));
@@ -90,5 +90,5 @@ export default function SignIn() {
         </div>
       </div>
     </div>
-  )
+  );
 }
