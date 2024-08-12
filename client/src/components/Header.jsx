@@ -36,7 +36,10 @@ export default function Header() {
             <Navbar.Link active={path === '/'} as={'div'}>
                 <Link to='/'
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    path === '/' ? 'bg-indigo-500 text-white' : 'text-gray-900'
+                    path === '/' ? 'bg-indigo-500 text-white' 
+                            : theme === 'dark' 
+                            ? 'text-white' 
+                            : 'text-gray-900'
                 } hover:bg-indigo-500 hover:text-white`}
                 >
                 Home
@@ -45,7 +48,10 @@ export default function Header() {
             <Navbar.Link active={path === '/about'} as={'div'}>
                 <Link to='/about'
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    path === '/about' ? 'bg-indigo-500 text-white' : 'text-gray-900'
+                    path === '/about' ? 'bg-indigo-500 text-white' 
+                            : theme === 'dark' 
+                            ? 'text-white' 
+                            : 'text-gray-900'
                 } hover:bg-indigo-500 hover:text-white`}
                 >
                 About
@@ -54,7 +60,10 @@ export default function Header() {
             <Navbar.Link active={path === '/projects'} as={'div'}>
                 <Link to='/projects'
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    path === '/projects' ? 'bg-indigo-500 text-white' : 'text-gray-900'
+                    path === '/projects' ? 'bg-indigo-500 text-white' 
+                            : theme === 'dark' 
+                            ? 'text-white' 
+                            : 'text-gray-900'
                 } hover:bg-indigo-500 hover:text-white`}
                 >
                 Projects
